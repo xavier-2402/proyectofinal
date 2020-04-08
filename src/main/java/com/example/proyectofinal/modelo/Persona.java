@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.modelo;
+package com.example.proyectofinal.modelo;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;

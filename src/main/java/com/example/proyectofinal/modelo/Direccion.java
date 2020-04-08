@@ -3,26 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.modelo;
+package com.example.proyectofinal.modelo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author Jessica Alvarez
  */
 @Entity
-public class Direccion {
+public class Direccion  implements Serializable
+{
        @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idDireccion;
+	private Long idClienteDirecciones;
        
         private String provincia_dir;
         private String canton_dir;
@@ -30,15 +36,20 @@ public class Direccion {
         private String barrio_dir;
         private String calle_dir;
         
-        @OneToMany(mappedBy = "direccion", cascade=CascadeType.ALL)
-        private List<Direccion> direccion = new ArrayList<>();
+        @JsonManagedReference
+        @OneToMany(mappedBy = "direccion", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+        private List<ClienteDirecciones> cliente_direcciones;
+        
+        //conductor-direccion
+        @OneToOne(mappedBy = "direccion")
+        private Conductor conductor;
 
-    public Long getIdDireccion() {
-        return idDireccion;
+    public Long getIdClienteDirecciones() {
+        return idClienteDirecciones;
     }
 
-    public void setIdDireccion(Long idDireccion) {
-        this.idDireccion = idDireccion;
+    public void setIdClienteDirecciones(Long idClienteDirecciones) {
+        this.idClienteDirecciones = idClienteDirecciones;
     }
 
     public String getProvincia_dir() {

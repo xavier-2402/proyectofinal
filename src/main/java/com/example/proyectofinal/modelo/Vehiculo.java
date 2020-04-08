@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.example.modelo;
+package com.example.proyectofinal.modelo;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,39 +15,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
  * @author Jessica Alvarez
  */
 @Entity
-public class Conductor implements Serializable{
+public class Vehiculo implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idConductor;
+    private Long idVehiculo;
+    private String v_matricula;
+    private String v_tipo;
+    private String v_color;
+    private String v_marca;
+    private String v_anio;
+    private String v_largo;
+    private String v_ancho;
     
+    //vehiculo_conductor-vehiculo
     @JsonBackReference
-    @JoinColumn(name="idPersona")
+    @JoinColumn(name="idVehiculoConductor")
     @ManyToOne(fetch=FetchType.LAZY)
-    private List<Conductor> conductor= new ArrayList<>();
-    
-    @JoinColumn(name="idDireccion")
-    @ManyToOne(fetch=FetchType.LAZY)
-    private List<Direccion> direccion= new ArrayList<>();
-
-
-    public Long getIdConductor() {
-        return idConductor;
-    }
-
-    public void setIdConductor(Long idConductor) {
-        this.idConductor = idConductor;
-    }
-
-  
-    
-    
+    private VehiculoConductor vehiculo_conductor;
     
     
 }
