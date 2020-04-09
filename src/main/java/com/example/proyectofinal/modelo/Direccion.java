@@ -28,7 +28,7 @@ public class Direccion  implements Serializable
 {
        @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idClienteDirecciones;
+	private Long idDirecciones;
        
         private String provincia_dir;
         private String canton_dir;
@@ -44,12 +44,12 @@ public class Direccion  implements Serializable
         @OneToOne(mappedBy = "direccion")
         private Conductor conductor;
 
-    public Long getIdClienteDirecciones() {
-        return idClienteDirecciones;
+    public Long getIdDirecciones() {
+        return idDirecciones;
     }
 
-    public void setIdClienteDirecciones(Long idClienteDirecciones) {
-        this.idClienteDirecciones = idClienteDirecciones;
+    public void setIdDirecciones(Long idClienteDirecciones) {
+        this.idDirecciones = idDirecciones;
     }
 
     public String getProvincia_dir() {

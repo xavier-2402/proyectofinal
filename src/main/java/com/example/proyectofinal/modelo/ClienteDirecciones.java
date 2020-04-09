@@ -8,6 +8,7 @@ package com.example.proyectofinal.modelo;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ import javax.persistence.OneToOne;
  *
  * @author Jessica Alvarez
  */
+@Entity
 public class ClienteDirecciones {
      @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,7 +36,7 @@ public class ClienteDirecciones {
       
       //clientedirecciones-direccion
       @JsonBackReference
-     @JoinColumn(name="idDireccion")
+     @JoinColumn(name="idDirecciones")
       @ManyToOne(fetch=FetchType.LAZY)
      private Direccion direccion;
       

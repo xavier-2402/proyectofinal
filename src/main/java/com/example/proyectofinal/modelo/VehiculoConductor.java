@@ -45,5 +45,22 @@ public class VehiculoConductor {
       @JsonManagedReference
       @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="vehiculoconductor")
       private List<Servicio> servicio;
+
+    public Long getIdVehiculoConductor() {
+        return idVehiculoConductor;
+    }
+
+    public void setIdVehiculoConductor(Long idVehiculoConductor) {
+        this.idVehiculoConductor = idVehiculoConductor;
+    }
+
+    public boolean isEstadoVehiculo() {
+        return estadoVehiculo;
+    }
+
+    public void setEstadoVehiculo(boolean estadoVehiculo) {
+        this.estadoVehiculo = estadoVehiculo;
+    }
     
+      
 }
