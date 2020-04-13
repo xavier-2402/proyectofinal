@@ -29,7 +29,7 @@ public class VehiculoConductor {
     private Long idVehiculoConductor;
     private boolean estadoVehiculo;
     
-    //conductor-vehiculo_conductor
+    //vehiculo_conductor
      @JsonBackReference
      @JoinColumn(name="idConductor")
       @ManyToOne(fetch=FetchType.LAZY)

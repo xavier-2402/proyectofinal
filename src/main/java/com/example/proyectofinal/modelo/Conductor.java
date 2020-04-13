@@ -37,8 +37,8 @@ public class Conductor implements Serializable{
     private Persona persona;
     
     //conductor-direccion
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idDirecciones", referencedColumnName = "idDirecciones")
+    @OneToOne(fetch= FetchType.LAZY)
+    @JoinColumn(name="idDirecciones")
     private Direccion direccion;
     
     //conductor-vehiculo_conductor

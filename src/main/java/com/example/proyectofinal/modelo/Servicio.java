@@ -35,7 +35,7 @@ public class Servicio {
      private VehiculoConductor vehiculo_conductor;
     
     //servicio-cliente_direcciones
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "idClienteDireccion", referencedColumnName = "id")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idClienteDireccion")
     private ClienteDirecciones cliente_direcciones;
 }

@@ -38,6 +38,12 @@ public class Vehiculo implements Serializable{
     @JoinColumn(name="idVehiculoConductor")
     @ManyToOne(fetch=FetchType.LAZY)
     private VehiculoConductor vehiculo_conductor;
+    
+     //vehiculo_conductor
+     @JsonBackReference
+     @JoinColumn(name="idConductor")
+      @ManyToOne(fetch=FetchType.LAZY)
+     private Conductor conductor;
 
     public Long getIdVehiculo() {
         return idVehiculo;

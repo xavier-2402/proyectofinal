@@ -8,6 +8,7 @@ package com.example.proyectofinal.modelo;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -41,9 +42,9 @@ public class ClienteDirecciones {
      private Direccion direccion;
       
       //servicio-clientedirecciones
-      
-    @OneToOne(mappedBy = "servicio")
-    private Servicio servicio;
+//      
+//    @OneToOne(mappedBy = "clientedirecciones", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+//    private Servicio servicio;
 
     public Long getIdClienteDireccion() {
         return idClienteDireccion;
